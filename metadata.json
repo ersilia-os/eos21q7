@@ -1,9 +1,9 @@
 {
-    "Identifier": "",
-    "Slug": "",
-    "Status": "",
-    "Title": "",
-    "Description": "",
+    "Identifier": "eos21q7",
+    "Slug": "InterDILI",
+    "Status": "In progress",
+    "Title": "interpretable prediction of drug-induced liver injury through permutation feature importance and attention mechanism",
+    "Description": "This study focused on interpreting the model prediction to analyze which features could potentially cause DILI and indicated that the model not only captured the previously known properties to be related to DILI but also proposed a new DILI potential substructural of physicochemical properties.",
     "Mode": "",
     "Task": [],
     "Input": [],
@@ -12,8 +12,12 @@
     "Output Type": [],
     "Output Shape": "",
     "Interpretation": "",
-    "Tag": [],
-    "Publication": "",
-    "Source Code": "",
-    "License": ""
+    "Tag": [
+        "Toxicity",
+        "Human",
+        "Cardiotoxicity"
+    ],
+    "Publication": "https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00796-8",
+    "Source Code": "https://github.com/bmil-jnu/InterDILI/tree/main",
+    "License": null
 }
