@@ -1,6 +1,6 @@
-# interpretable prediction of drug-induced liver injury through permutation feature importance and attention mechanism
+# InterDILI: drug-induced injury prediction
 
-This study focused on interpreting the model prediction to analyze which features could potentially cause DILI and indicated that the model not only captured the previously known properties to be related to DILI but also proposed a new DILI potential substructural of physicochemical properties.
+This model has been trained on a publicly available collection of 5 datasets manually curated for drug-induced-liver-injury (DILI). DILI outcome has been binarised, and ECFP descriptors, together with physicochemical properties have been used to train a random forest classifier which achieves AUROC > 0.9
 
 ## Identifiers
 
@@ -15,12 +15,12 @@ This study focused on interpreting the model prediction to analyze which feature
 * Output: `Probability`
 * Output Type: `Float`
 * Output Shape: `Single`
-* Interpretation: The model predicts the probability of Drug-Induced Liver Injury (DILI) based on compound features, providing a probability score ranging from 0 to 1, with higher values indicating greater risk
+* Interpretation: Probability of Drug-Induced Liver Injury (DILI), higher score indicates higer risk
 
 ## References
 
 * [Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00796-8)
-* [Source Code](https://github.com/bmil-jnu/InterDILI/tree/main)
+* [Source Code](https://github.com/bmil-jnu/InterDILI)
 * Ersilia contributor: [leilayesufu](https://github.com/leilayesufu)
 
 ## Ersilia model URLs
