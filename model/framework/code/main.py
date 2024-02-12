@@ -2,12 +2,63 @@ import os
 import csv
 import joblib
 import sys
+import numpy as np
+import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem import DataStructs
-import numpy as np
-import pandas as pd
 from rdkit.Chem import QED
+from sklearn.preprocessing import StandardScaler
+
+# Define ECFP calculation function
+def ecfp_calculation(smiles):
+    mols = [Chem.MolFromSmiles(smi) for smi in smiles]
+    bit_info_list = []
+    bit_info = {}
+    fps = []
+    for mol in mols:
+        fps.append(AllChem.GetMorganFingerprintAsBitVect(mol, 3, nBits=1024, bitInfo=bit_info))
+        bit_info_list.append(bit_info.copy())
+    arr_list = [np.zeros((0,), dtype=np.int8) for _ in range(len(fps))]
+    for i, bit in enumerate(fps):
+        DataStructs.ConvertToNumpyArray(bit, arr_list[i])
+    ecfps = np.stack([i.tolist() for i in arr_list])
+    df = pd.DataFrame(ecfps.astype(np.float32))
+    return df
+
+# Define QED calculation function
+def qed_calculation(smiles):
+    mols = [Chem.MolFromSmiles(smi) for smi in smiles]
+    qe = [QED.properties(mol) for mol in mols]
+    qe_df = pd.DataFrame(qe)
+    return qe_df
+
+# Define function to scale QED descriptors
+def scale_qed(df):
+    scaler = StandardScaler()
+    scaled_array = scaler.fit_transform(df)
+    scaled_df = pd.DataFrame(scaled_array, columns=df.columns)
+    return scaled_df
+
+# Define function to preprocess the data
+def preprocess_data(df):
+    # Detect the column containing SMILES strings
+    smiles_column = df.columns[df.apply(lambda col: col.apply(lambda x: Chem.MolFromSmiles(str(x)) is not None)).all()][0]
+    smiles = df[smiles_column].tolist()
+    
+    # Calculate ECFP descriptors
+    ecfp_df = ecfp_calculation(smiles)
+    
+    # Calculate QED descriptors
+    qed_df = qed_calculation(smiles)
+    
+    # Scale the QED descriptors
+    scaled_qed_df = scale_qed(qed_df)
+    
+    # Concatenate the descriptor dataframes
+    processed_df = pd.concat([ecfp_df, scaled_qed_df], axis=1)
+    
+    return processed_df
 
 # current file directory
 root = os.path.dirname(os.path.abspath(__file__))
@@ -16,73 +67,20 @@ root = os.path.dirname(os.path.abspath(__file__))
 checkpoints_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
 
 # read checkpoints (here, simply an integer number: 42)
-model = joblib.load(os.path.join(checkpoints_dir, "Random_forest_model.pkl"))
+model = joblib.load(os.path.join(checkpoints_dir, "random_forest_model.pkl"))
 
 # parse arguments
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
-# read SMILES from input .csv file, assuming one column with header
-with open(input_file, "r") as f:
-    reader = csv.reader(f)
-    next(reader)  # skip header
-    smiles_list = [r[0] for r in reader]
+# read input data
+input_data = pd.read_csv(input_file)
 
-# Convert SMILES to molecules
-mols = [Chem.MolFromSmiles(smiles) for smiles in smiles_list]
+# preprocess data
+processed_data = preprocess_data(input_data)
 
-# If smiles don't transform to mol, add to none_list
-none_list = []
-for i in range(len(mols)):
-    if mols[i] is None:
-        none_list.append(i)
-        print('add to none_list')
-
-reg_idx = 0
-for i in none_list:
-    del mols[i - reg_idx]
-    reg_idx += 1
-
-# Modify index
-if len(none_list) != 0:
-    for i in none_list:
-        del smiles_list[i - reg_idx]
-        reg_idx += 1
-
-# Create fingerprint
-bit_info_list = []  # Bit vector
-bit_info = {}  # Bit vector
-fps = []
-b = 0
-
-# Mol to fingerprint Bit Vector
-for a in mols:
-    fps.append(AllChem.GetMorganFingerprintAsBitVect(a, 3, nBits=1024, bitInfo=bit_info))
-    bit_info_list.append(bit_info.copy())
-
-# To array
-arr_list = list()
-for i in range(len(fps)):
-    array = np.zeros((0,), dtype=np.int8)
-    arr_list.append(array)
-
-for i in range(len(fps)):
-    bit = fps[i]
-    DataStructs.ConvertToNumpyArray(bit, arr_list[i])
-
-test_x = np.stack([i.tolist() for i in arr_list])
-test_x = test_x.astype(np.float32)
-test_finprt = pd.DataFrame(test_x)
-
-# Create physicochemical properties
-qe = [QED.properties(mol) for mol in mols]
-qe = pd.DataFrame(qe)
-
-# Merge QED properties dataframe with train_finprt
-test_finprt = pd.concat([test_finprt, qe], axis=1)
-
-# Convert the test_finprt dataframe to numpy array
-test_x_combined = test_finprt.values.astype(np.float32)
+# convert the processed data to numpy array
+test_x_combined = processed_data.values.astype(np.float32)
 
 # run model
 outputs = model.predict_proba(test_x_combined)[:, 1]
