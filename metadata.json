@@ -1,7 +1,7 @@
 {
     "Identifier": "eos21q7",
     "Slug": "inter_dili",
-    "Status": "In progress",
+    "Status": "Ready",
     "Title": "InterDILI: drug-induced injury prediction",
     "Description": "This model has been trained on a publicly available collection of 5 datasets manually curated for drug-induced-liver-injury (DILI). DILI outcome has been binarised, and ECFP descriptors, together with physicochemical properties have been used to train a random forest classifier which achieves AUROC > 0.9",
     "Mode": "Retrained",
