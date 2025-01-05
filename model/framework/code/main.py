@@ -36,6 +36,6 @@ assert input_len == output_len
 # Write output to CSV
 with open(output_file, "w") as f:
     writer = csv.writer(f)
-    writer.writerow(["value"])  # header
+    writer.writerow(["dili_probability"])  # header
     for o in outputs:
         writer.writerow([o])
