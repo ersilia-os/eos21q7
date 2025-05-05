@@ -23,10 +23,13 @@ processor = DataProcessor()
 processed_data = processor.preprocess_data(input_data)
 
 # Convert processed data to numpy array
-test_x_combined = processed_data.values.astype(np.float32)
+# test_x_combined = processed_data.values.astype(np.float32)  # this causes an error, pass the pd df directly with columns as strings
+
+# Change columns format to str
+processed_data.columns = processed_data.columns.astype(str)
 
 # Run model
-outputs = model.predict_proba(test_x_combined)[:, 1]
+outputs = model.predict_proba(processed_data)[:, 1]
 
 #check input and output have the same length
 input_len = len(input_data)
