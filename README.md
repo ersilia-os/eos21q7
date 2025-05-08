@@ -43,10 +43,6 @@ Below are the **Output Columns** of the model:
 - **Environment Size (Mb):** `783`
 - **Image Size (Mb):** `709.72`
 
-**Computational Performance (seconds):**
-- 4 inputs: `32.63`
-- 20 inputs: `22.28`
-- 100 inputs: `22.56`
 
 ### References
 - **Source Code**: [https://github.com/bmil-jnu/InterDILI](https://github.com/bmil-jnu/InterDILI)
