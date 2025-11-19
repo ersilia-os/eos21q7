@@ -1,6 +1,6 @@
 # InterDILI: drug-induced injury prediction
 
-This model has been trained on a publicly available collection of 5 datasets manually curated for drug-induced-liver-injury (DILI). DILI outcome has been binarised, and ECFP descriptors, together with physicochemical properties have been used to train a random forest classifier which achieves AUROC > 0.9
+This model has been trained on a publicly available collection of 5 datasets manually curated for drug-induced-liver-injury (DILI). The original implementation (4 sets for model training, one for model testing) renders an AUROC = 0.85 with the LazyQSAR framework. The model provided here is trained on a final dataset from the five sources, and achieves an AUROC of 0.79 over a 5-fold cross-validation.
 
 This model was incorporated on 2024-01-30.Last packaged on 2025-11-19.
 
