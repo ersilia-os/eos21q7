@@ -2,8 +2,7 @@
 
 This model has been trained on a publicly available collection of 5 datasets manually curated for drug-induced-liver-injury (DILI). DILI outcome has been binarised, and ECFP descriptors, together with physicochemical properties have been used to train a random forest classifier which achieves AUROC > 0.9
 
-This model was incorporated on 2024-01-30.
-
+This model was incorporated on 2024-01-30.Last packaged on 2025-11-19.
 
 ## Information
 ### Identifiers
@@ -42,12 +41,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `12`
 - **Environment Size (Mb):** `780`
-- **Image Size (Mb):** `709.4`
+- **Image Size (Mb):** `801.64`
 
 **Computational Performance (seconds):**
-- 10 inputs: `31.89`
-- 100 inputs: `21.83`
-- 10000 inputs: `346.51`
+- 10 inputs: `28.15`
+- 100 inputs: `18.03`
+- 10000 inputs: `78.89`
 
 ### References
 - **Source Code**: [https://github.com/bmil-jnu/InterDILI](https://github.com/bmil-jnu/InterDILI)
