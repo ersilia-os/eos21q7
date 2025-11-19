@@ -1,44 +1,35 @@
+# imports
 import os
 import csv
-import joblib
 import sys
-from data_preprocessing import DataProcessor
-import pandas as pd
-import numpy as np
+from lazyqsar.qsar import LazyBinaryQSAR
 
-# Define paths
-root = os.path.dirname(os.path.abspath(__file__))
-checkpoints_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
-
-# Load model
-model = joblib.load(os.path.join(checkpoints_dir, "random_forest_model.pkl"))
-
-# Read input file
 input_file = sys.argv[1]
 output_file = sys.argv[2]
-input_data = pd.read_csv(input_file)
 
-# Preprocess data
-processor = DataProcessor()
-processed_data = processor.preprocess_data(input_data)
+root = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
 
-# Convert processed data to numpy array
-# test_x_combined = processed_data.values.astype(np.float32)  # this causes an error, pass the pd df directly with columns as strings
+with open(input_file, "r") as f:
+    reader = csv.reader(f)
+    next(reader)  # skip header
+    smiles_list = [r[0] for r in reader]
 
-# Change columns format to str
-processed_data.columns = processed_data.columns.astype(str)
+def predict(smiles_list, model_path):
+    model = LazyBinaryQSAR.load(model_path)
+    y_hat = model.predict_proba(smiles_list=smiles_list)[:, 1]
+    return y_hat
 
-# Run model
-outputs = model.predict_proba(processed_data)[:, 1]
 
-#check input and output have the same length
-input_len = len(input_data)
+outputs = predict(smiles_list, model_path)
+
+input_len = len(smiles_list)
 output_len = len(outputs)
 assert input_len == output_len
 
-# Write output to CSV
+# write output in a .csv file
 with open(output_file, "w") as f:
     writer = csv.writer(f)
-    writer.writerow(["dili_probability"])  # header
+    writer.writerow(["dili_probability"])
     for o in outputs:
         writer.writerow([o])

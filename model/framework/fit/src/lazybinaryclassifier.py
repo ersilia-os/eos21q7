@@ -12,16 +12,16 @@ import shutil
 
 root = os.path.dirname(os.path.abspath(__file__))
 
-train_file = os.path.join(root, "..","data", "train.csv")
-#model_folder = os.path.join(root, "..", "..", "..", "checkpoints")
-model_folder = os.path.join(root, "..", "results", "validation_model")
+train_file = os.path.join(root, "..","data", "full_dataset.csv")
+model_folder = os.path.join(root, "..", "..", "..", "checkpoints")
+#model_folder = os.path.join(root, "..", "results", "validation_model")
 
 if not os.path.exists(model_folder):
     os.makedirs(model_folder)
 
 train = pd.read_csv(train_file)
 x = train["st_smiles"].astype(str)
-y = train["bin"].astype(int)
+y = train["toxicity"].astype(int)
 
 
 def fit_and_evaluate(x_train, x_test, y_train, y_test, output_dir, mode, clean=True, onnx=True):
