@@ -39,6 +39,8 @@
     "License": "None",
     "Contributor": "leilayesufu",
     "Incorporation Date": "2024-01-30",
+    "Last Packaging Date": "2025-11-19",
+    "Release": "v1.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos21q7.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos21q7",
     "Docker Architecture": [
@@ -47,11 +49,11 @@
     ],
     "Model Size": 12.0,
     "Environment Size": 780.0,
-    "Image Size": 709.4,
-    "Computational Performance 1": 31.89,
-    "Computational Performance 2": 21.52,
-    "Computational Performance 3": 21.83,
-    "Computational Performance 4": 79.9,
-    "Computational Performance 5": 346.51,
+    "Image Size": 801.64,
+    "Computational Performance 1": 28.15,
+    "Computational Performance 2": 17.88,
+    "Computational Performance 3": 18.03,
+    "Computational Performance 4": 28.97,
+    "Computational Performance 5": 78.89,
     "Docker Pack Method": "FastAPI"
 }
