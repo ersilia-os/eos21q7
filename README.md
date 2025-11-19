@@ -41,12 +41,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `11`
 - **Environment Size (Mb):** `7610`
-- **Image Size (Mb):** `801.64`
+- **Image Size (Mb):** `7504.84`
 
 **Computational Performance (seconds):**
-- 10 inputs: `28.15`
-- 100 inputs: `18.03`
-- 10000 inputs: `78.89`
+- 10 inputs: `58.36`
+- 100 inputs: `54.77`
+- 10000 inputs: `494.72`
 
 ### References
 - **Source Code**: [https://github.com/bmil-jnu/InterDILI](https://github.com/bmil-jnu/InterDILI)
