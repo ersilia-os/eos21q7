@@ -40,7 +40,7 @@
     "Contributor": "leilayesufu",
     "Incorporation Date": "2024-01-30",
     "Last Packaging Date": "2025-11-19",
-    "Release": "v1.0.0",
+    "Release": "v2.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos21q7.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos21q7",
     "Docker Architecture": [
