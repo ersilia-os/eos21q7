@@ -50,7 +50,7 @@ Below are the **Output Columns** of the model:
 
 ### References
 - **Source Code**: [https://github.com/bmil-jnu/InterDILI](https://github.com/bmil-jnu/InterDILI)
-- **Publication**: [https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00796-8](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00796-8)
+- **Publication**: [https://doi.org/10.1186/s13321-023-00796-8](https://doi.org/10.1186/s13321-023-00796-8)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2024`
 - **Ersilia Contributor:** [leilayesufu](https://github.com/leilayesufu)
