@@ -1,7 +1,7 @@
 {
     "Identifier": "eos21q7",
     "Slug": "inter-dili",
-    "Status": "In maintenance",
+    "Status": "Ready",
     "Title": "InterDILI: drug-induced injury prediction",
     "Description": "This model has been trained on a publicly available collection of 5 datasets manually curated for drug-induced-liver-injury (DILI). The original implementation (4 sets for model training, one for model testing) renders an AUROC = 0.85 with the LazyQSAR framework. The model provided here is trained on a final dataset from the five sources, and achieves an AUROC of 0.79 over a 5-fold cross-validation.",
     "Deployment": [
