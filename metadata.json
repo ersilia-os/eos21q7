@@ -3,7 +3,7 @@
     "Slug": "inter-dili",
     "Status": "Ready",
     "Title": "InterDILI: drug-induced injury prediction",
-    "Description": "Assesses the risk that a compound causes drug-induced liver injury, the single largest cause of safety-driven withdrawals. InterDILI pairs molecular fingerprints with an attention mechanism so that the substructures driving each prediction can be inspected, and uses permutation feature importance to rank which descriptors matter overall. Lee and Yoo built it for interpretability rather than raw accuracy alone. Ersilia distributes a replicated implementation trained following the published methodology.",
+    "Description": "Flags the risk that a compound causes drug-induced liver injury, the leading cause of safety-driven withdrawals from the market. Lee and Yoo built InterDILI from substructure and physicochemical descriptors combined with an attention mechanism and permutation feature importance, so the features behind each call can be inspected, reporting AUROC between 0.88 and 0.97 across five public DILI datasets. Ersilia replicates it with a classifier trained on the merged 1850-compound set, reaching an AUROC of 0.79 in five-fold cross-validation.",
     "Deployment": [
         "Local"
     ],
@@ -20,7 +20,7 @@
     ],
     "Output Dimension": 1,
     "Output Consistency": "Fixed",
-    "Interpretation": "Probability that a compound causes drug-induced liver injury.",
+    "Interpretation": "Probability that a compound causes drug-induced liver injury, higher values indicating greater hepatotoxic risk.",
     "Tag": [
         "Toxicity",
         "Metabolism"
