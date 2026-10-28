@@ -39,7 +39,7 @@ Source Code: https://github.com/bmil-jnu/InterDILI
 License: None
 Contributor: leilayesufu
 Incorporation Date: '2024-01-30'
-Last Packaging Date: '2025-11-19'
+Last Packaging Date: '2026-10-28'
 Release: v2.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos21q7.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos21q7
@@ -48,10 +48,10 @@ Docker Architecture:
   - ARM64
 Model Size: 11.0
 Environment Size: 7552.0
-Image Size: 7504.84
-Computational Performance 1: 58.36
-Computational Performance 2: 33.66
-Computational Performance 3: 54.77
-Computational Performance 4: 154.4
-Computational Performance 5: 494.72
+Image Size: 7490.19
+Computational Performance 1: 81.34
+Computational Performance 2: 83.61
+Computational Performance 3: 67.4
+Computational Performance 4: 167.33
+Computational Performance 5: 558.23
 Docker Pack Method: FastAPI
