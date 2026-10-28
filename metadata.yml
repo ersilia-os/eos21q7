@@ -1,0 +1,56 @@
+Identifier: eos21q7
+Slug: inter-dili
+Status: Ready
+Title: 'InterDILI: drug-induced injury prediction'
+Description: Flags the risk that a compound causes drug-induced liver injury, the
+  leading cause of safety-driven withdrawals from the market. Lee and Yoo built InterDILI
+  from substructure and physicochemical descriptors combined with an attention mechanism
+  and permutation feature importance, so the features behind each call can be inspected,
+  reporting AUROC between 0.88 and 0.97 across five public DILI datasets. Ersilia
+  replicates it with a classifier trained on the merged 1850-compound set, reaching
+  an AUROC of 0.79 in five-fold cross-validation.
+Deployment:
+- Local
+Source: Local
+Source Type: Replicated
+Task: Annotation
+Subtask: Activity prediction
+Input:
+- Compound
+Input Dimension: 1
+Output:
+- Score
+Output Dimension: 1
+Output Consistency: Fixed
+Interpretation: Probability that a compound causes drug-induced liver injury, higher
+  values indicating greater hepatotoxic risk.
+Tag:
+- Toxicity
+- Metabolism
+Biomedical Area:
+- ADMET
+Target Organism:
+- Homo sapiens
+Publication Type: Peer reviewed
+Publication Year: 2024
+Publication: https://doi.org/10.1186/s13321-023-00796-8
+Source Code: https://github.com/bmil-jnu/InterDILI
+License: None
+Contributor: leilayesufu
+Incorporation Date: '2024-01-30'
+Last Packaging Date: '2025-11-19'
+Release: v2.0.0
+S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos21q7.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos21q7
+Docker Architecture:
+- AMD64
+- ARM64
+Model Size: 11.0
+Environment Size: 7610.0
+Image Size: 7504.84
+Computational Performance 1: 58.36
+Computational Performance 2: 33.66
+Computational Performance 3: 54.77
+Computational Performance 4: 154.4
+Computational Performance 5: 494.72
+Docker Pack Method: FastAPI
