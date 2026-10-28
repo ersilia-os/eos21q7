@@ -2,7 +2,7 @@
 
 Flags the risk that a compound causes drug-induced liver injury, the leading cause of safety-driven withdrawals from the market. Lee and Yoo built InterDILI from substructure and physicochemical descriptors combined with an attention mechanism and permutation feature importance, so the features behind each call can be inspected, reporting AUROC between 0.88 and 0.97 across five public DILI datasets. Ersilia replicates it with a classifier trained on the merged 1850-compound set, reaching an AUROC of 0.79 in five-fold cross-validation.
 
-This model was incorporated on 2024-01-30.Last packaged on 2025-11-19.
+This model was incorporated on 2024-01-30.Last packaged on 2026-10-28.
 
 ## Information
 ### Identifiers
@@ -41,12 +41,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `11`
 - **Environment Size (Mb):** `7552`
-- **Image Size (Mb):** `7504.84`
+- **Image Size (Mb):** `7490.19`
 
 **Computational Performance (seconds):**
-- 10 inputs: `58.36`
-- 100 inputs: `54.77`
-- 10000 inputs: `494.72`
+- 10 inputs: `81.34`
+- 100 inputs: `67.4`
+- 10000 inputs: `558.23`
 
 ### References
 - **Source Code**: [https://github.com/bmil-jnu/InterDILI](https://github.com/bmil-jnu/InterDILI)
