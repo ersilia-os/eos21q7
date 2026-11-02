@@ -23,9 +23,9 @@ Output:
   - Score
 Output Dimension: 1
 Output Consistency: Fixed
-Interpretation: Rank score calibrated against the Ersilia reference library of
-  50K compounds, where 0.65 beats 99% of it. Higher values mean a greater risk that
-  the compound causes drug-induced liver injury.
+Interpretation: Rank score calibrated against the Ersilia reference library of 
+  50K compounds, where 0.65 beats 99% of it. Higher values mean a greater risk 
+  that the compound causes drug-induced liver injury.
 Tag:
   - Toxicity
   - Metabolism
