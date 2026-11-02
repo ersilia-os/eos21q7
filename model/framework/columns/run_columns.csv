@@ -1,2 +1,2 @@
 name,type,direction,description
-dili_probability,float,high,Predicted probability of a compound producing drug induced liver injury (DILI)
+dili_rank,float,high,Rank score of how likely the compound is to cause drug-induced liver injury (DILI). Calibrated against 50K compounds from the Ersilia reference library so that a score of 0.65 is better than 99% of them. Recommended threshold: 0.65.

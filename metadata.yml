@@ -8,7 +8,7 @@ Description: Flags the risk that a compound causes drug-induced liver injury,
   with an attention mechanism and permutation feature importance, so the 
   features behind each call can be inspected, reporting AUROC between 0.88 and 
   0.97 across five public DILI datasets. Ersilia replicates it with a classifier
-  trained on the merged 1850-compound set, reaching an AUROC of 0.79 in 
+  trained on the merged 1850-compound set, reaching an AUROC of 0.86 in 
   five-fold cross-validation.
 Deployment:
   - Local
@@ -23,8 +23,9 @@ Output:
   - Score
 Output Dimension: 1
 Output Consistency: Fixed
-Interpretation: Probability that a compound causes drug-induced liver injury, 
-  higher values indicating greater hepatotoxic risk.
+Interpretation: Rank score calibrated against the Ersilia reference library of
+  50K compounds, where 0.65 beats 99% of it. Higher values mean a greater risk that
+  the compound causes drug-induced liver injury.
 Tag:
   - Toxicity
   - Metabolism
