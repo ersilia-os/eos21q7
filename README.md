@@ -1,8 +1,9 @@
 # InterDILI: drug-induced injury prediction
 
-Flags the risk that a compound causes drug-induced liver injury, the leading cause of safety-driven withdrawals from the market. Lee and Yoo built InterDILI from substructure and physicochemical descriptors combined with an attention mechanism and permutation feature importance, so the features behind each call can be inspected, reporting AUROC between 0.88 and 0.97 across five public DILI datasets. Ersilia replicates it with a classifier trained on the merged 1850-compound set, reaching an AUROC of 0.79 in five-fold cross-validation.
+Flags the risk that a compound causes drug-induced liver injury, the leading cause of safety-driven withdrawals from the market. Lee and Yoo built InterDILI from substructure and physicochemical descriptors combined with an attention mechanism and permutation feature importance, so the features behind each call can be inspected, reporting AUROC between 0.88 and 0.97 across five public DILI datasets. Ersilia replicates it with a classifier trained on the merged 1850-compound set, reaching an AUROC of 0.86 in five-fold cross-validation.
 
-This model was incorporated on 2024-01-30.Last packaged on 2026-10-28.
+This model was incorporated on 2024-01-30.
+Last packaged on 2026-10-28.
 
 ## Information
 ### Identifiers
@@ -23,12 +24,12 @@ This model was incorporated on 2024-01-30.Last packaged on 2026-10-28.
 ### Output
 - **Output Dimension:** `1`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability that a compound causes drug-induced liver injury, higher values indicating greater hepatotoxic risk.
+- **Interpretation:** Rank score calibrated against the Ersilia reference library of 50K compounds, where 0.65 beats 99% of it. Higher values mean a greater risk that the compound causes drug-induced liver injury.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
-| dili_probability | float | high | Predicted probability of a compound producing drug induced liver injury (DILI) |
+| dili_rank | float | high | Rank score of how likely the compound is to cause drug-induced liver injury (DILI). Calibrated against 50K compounds from the Ersilia reference library so that a score of 0.65 is better than 99% of them. Recommended threshold: 0.65. |
 
 
 ### Source and Deployment
