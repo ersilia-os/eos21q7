@@ -1,6 +1,6 @@
 # InterDILI: drug-induced injury prediction
 
-Flags the risk that a compound causes drug-induced liver injury, the leading cause of safety-driven withdrawals from the market. Lee and Yoo built InterDILI from substructure and physicochemical descriptors combined with an attention mechanism and permutation feature importance, so the features behind each call can be inspected, reporting AUROC between 0.88 and 0.97 across five public DILI datasets. Ersilia replicates it with a classifier trained on the merged 1850-compound set, reaching an AUROC of 0.86 in five-fold cross-validation.
+Flags the risk that a compound causes drug-induced liver injury, the leading cause of safety-driven withdrawals from the market. Lee and Yoo built InterDILI from substructure and physicochemical descriptors with an attention mechanism, reporting AUROC between 0.88 and 0.97 across five public DILI datasets. Ersilia replicates it with a LazyQSAR classifier trained on the merged set of 1,850 compounds, 952 of them hepatotoxic, with a five-fold out-of-fold AUROC of 0.86.
 
 This model was incorporated on 2024-01-30.
 Last packaged on 2026-11-02.
