@@ -2,12 +2,12 @@ Identifier: eos21q7
 Slug: inter-dili
 Status: Ready
 Title: 'InterDILI: drug-induced injury prediction'
-Description: Flags the risk that a compound causes drug-induced liver injury,
-  the leading cause of safety-driven withdrawals from the market. Lee and Yoo
-  built InterDILI from substructure and physicochemical descriptors with an
-  attention mechanism, reporting AUROC between 0.88 and 0.97 across five public
+Description: Flags the risk that a compound causes drug-induced liver injury, 
+  the leading cause of safety-driven withdrawals from the market. Lee and Yoo 
+  built InterDILI from substructure and physicochemical descriptors with an 
+  attention mechanism, reporting AUROC between 0.88 and 0.97 across five public 
   DILI datasets. Ersilia replicates it with a LazyQSAR classifier trained on the
-  merged set of 1,850 compounds, 952 of them hepatotoxic, with a five-fold
+  merged set of 1,850 compounds, 952 of them hepatotoxic, with a five-fold 
   out-of-fold AUROC of 0.86.
 Deployment:
   - Local
